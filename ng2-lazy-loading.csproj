@@ -73,6 +73,12 @@
   <ItemGroup>
     <Content Include="index.html" />
     <Content Include="packages.config" />
+    <Content Include="src\app\modules\customer\customer-landing-page.component.html">
+      <DependentUpon>customer-landing-page.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\modules\customer\customer-landing-page.component.scss">
+      <DependentUpon>customer-landing-page.component.ts</DependentUpon>
+    </Content>
     <Content Include="src\app\pages\landing-page.component.html">
       <DependentUpon>landing-page.component.ts</DependentUpon>
     </Content>
@@ -149,6 +155,9 @@
   </Target>
   -->
   <ItemGroup>
+    <TypeScriptCompile Include="src\app\modules\customer\customer-landing-page.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\customer\customer.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\customer\customer.routes.ts" />
     <TypeScriptCompile Include="src\vendor.ts" />
     <TypeScriptCompile Include="src\polyfills.ts" />
     <TypeScriptCompile Include="src\main.ts" />

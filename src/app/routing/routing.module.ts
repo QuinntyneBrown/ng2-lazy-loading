@@ -8,7 +8,11 @@ export const routes: Routes = [
     {
         path: '',
         component: LandingPageComponent
-    }
+    },
+    {
+        path: 'customer',
+        loadChildren: '../modules/customer/customer.module#CustomerModule'
+    },
 ];
 
 export const RoutingModule = RouterModule.forRoot([
