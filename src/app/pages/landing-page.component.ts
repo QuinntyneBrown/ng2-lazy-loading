@@ -5,4 +5,6 @@ import { Component } from "@angular/core";
     styles: [require("./landing-page.component.scss")],
     selector: "landing-page"
 })
-export class LandingPageComponent { }
+export class LandingPageComponent {
+
+}
