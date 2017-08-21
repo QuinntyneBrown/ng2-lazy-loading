@@ -89,15 +89,7 @@
     <Content Include="src\app\landing\landing-page.component.html">
       <DependentUpon>landing-page.component.ts</DependentUpon>
     </Content>
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
     <Content Include="package.json" />
-    <Content Include="lib\jquery.min.js" />
-    <Content Include="lib\slick.min.js" />
     <Content Include="src\app\app.component.html">
       <DependentUpon>app.component.ts</DependentUpon>
     </Content>
@@ -112,14 +104,10 @@
     <Content Include="src\styles\page.css" />
     <Content Include="webpack.config.js" />
     <Content Include="tsconfig.json" />
-    <Content Include="typedoc.json" />
     <Content Include="typings.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -182,6 +170,8 @@
     <TypeScriptCompile Include="src\app\landing\landing-page.component.ts" />
     <TypeScriptCompile Include="src\app\shared\shared.module.ts" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>
