@@ -1,10 +1,20 @@
-import { Component, ChangeDetectionStrategy, Input, OnInit, ViewEncapsulation } from "@angular/core";
+import {Component} from "@angular/core";
+import { Storage } from "./shared/services/storage.service";
 
 @Component({
-    template: require("./app.component.html"),
-    styles: [require("./app.component.scss")],
-    selector: "app",
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+    templateUrl: "./app.component.html",
+    styleUrls: ["./app.component.css"],
+    selector: "app"
 })
-export class AppComponent { }
+export class AppComponent {
+    constructor(private _storage: Storage) {
+
+    }
+
+    ngOnInit() {
+        this._storage.put({
+            name: "something", value: { foo: true }
+        });
+    }
+
+}

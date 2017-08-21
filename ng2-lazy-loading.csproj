@@ -29,6 +29,7 @@
     <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
     <TypeScriptExperimentalDecorators>True</TypeScriptExperimentalDecorators>
     <TypeScritModuleResolution>Classic</TypeScritModuleResolution>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -73,22 +74,21 @@
   <ItemGroup>
     <Content Include="index.html" />
     <Content Include="packages.config" />
-    <Content Include="src\app\modules\customer\customer-landing-page.component.html">
+    <Content Include="src\app\app.component.css">
+      <DependentUpon>app.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\customers\customer-landing-page.component.css">
       <DependentUpon>customer-landing-page.component.ts</DependentUpon>
     </Content>
-    <Content Include="src\app\modules\customer\customer-landing-page.component.scss">
+    <Content Include="src\app\customers\customer-landing-page.component.html">
       <DependentUpon>customer-landing-page.component.ts</DependentUpon>
     </Content>
-    <Content Include="src\app\pages\landing-page.component.html">
+    <Content Include="src\app\landing\landing-page.component.css">
       <DependentUpon>landing-page.component.ts</DependentUpon>
     </Content>
-    <Content Include="src\app\pages\landing-page.component.scss">
+    <Content Include="src\app\landing\landing-page.component.html">
       <DependentUpon>landing-page.component.ts</DependentUpon>
     </Content>
-    <Content Include="src\styles\index.scss" />
-    <Content Include="src\styles\_breakpoints.scss" />
-    <Content Include="src\styles\_normalize.scss" />
-    <Content Include="src\styles\_varibles.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -101,9 +101,15 @@
     <Content Include="src\app\app.component.html">
       <DependentUpon>app.component.ts</DependentUpon>
     </Content>
-    <Content Include="src\app\app.component.scss">
-      <DependentUpon>app.component.ts</DependentUpon>
+    <Content Include="src\app\shared\components\header.component.css">
+      <DependentUpon>header.component.html</DependentUpon>
     </Content>
+    <Content Include="src\app\shared\components\header.component.html" />
+    <Content Include="src\app\shared\components\page-title.component.css">
+      <DependentUpon>page-title.component.html</DependentUpon>
+    </Content>
+    <Content Include="src\app\shared\components\page-title.component.html" />
+    <Content Include="src\styles\page.css" />
     <Content Include="webpack.config.js" />
     <Content Include="tsconfig.json" />
     <Content Include="typedoc.json" />
@@ -155,21 +161,27 @@
   </Target>
   -->
   <ItemGroup>
-    <TypeScriptCompile Include="src\app\modules\customer\customer-landing-page.component.ts" />
-    <TypeScriptCompile Include="src\app\modules\customer\customer.module.ts" />
-    <TypeScriptCompile Include="src\app\modules\customer\customer.routes.ts" />
-    <TypeScriptCompile Include="src\vendor.ts" />
+    <TypeScriptCompile Include="src\app\customers\customer-landing-page.component.ts" />
+    <TypeScriptCompile Include="src\app\customers\customer.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\header.component.ts">
+      <DependentUpon>header.component.html</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\shared\components\page-title.component.ts">
+      <DependentUpon>page-title.component.html</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\shared\constants.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\storage.service.ts" />
     <TypeScriptCompile Include="src\polyfills.ts" />
     <TypeScriptCompile Include="src\main.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\environment.ts" />
     <TypeScriptCompile Include="src\app\index.ts" />
-    <TypeScriptCompile Include="src\app\rxjs-extensions.ts" />
-    <TypeScriptCompile Include="src\app\pages\index.ts" />
-    <TypeScriptCompile Include="src\app\routing\routing.module.ts" />
-    <TypeScriptCompile Include="src\app\routing\index.ts" />
-    <TypeScriptCompile Include="src\app\pages\landing-page.component.ts" />
+    <TypeScriptCompile Include="src\app\landing\index.ts" />
+    <TypeScriptCompile Include="src\app\app.routing.ts" />
+    <TypeScriptCompile Include="src\app\landing\landing-page.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\shared.module.ts" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>

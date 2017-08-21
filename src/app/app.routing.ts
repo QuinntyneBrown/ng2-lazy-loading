@@ -1,8 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import {
-	LandingPageComponent
-} from "../pages";
+import { LandingPageComponent } from "./landing";
 
 export const routes: Routes = [
     {
@@ -11,8 +9,8 @@ export const routes: Routes = [
     },
     {
         path: 'customer',
-        loadChildren: '../modules/customer/customer.module#CustomerModule'
-    },
+        loadChildren: './customers/customer.module#CustomerModule'
+    }
 ];
 
 export const RoutingModule = RouterModule.forRoot([

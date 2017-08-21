@@ -1,11 +1,13 @@
-﻿var webpack = require('webpack');
+﻿const path = require('path');
+const webpack = require('webpack');
+const typescript = require('typescript');
 
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 module.exports = {
     devtool: 'source-map',
     entry: {
-        'vendor': ['./src/polyfills', './src/vendor'],
+        'vendor': ['./src/polyfills'],
         'app': './src/main'
     },
     output: {
@@ -14,19 +16,26 @@ module.exports = {
         publicPath: "dist/"
     },
     resolve: {
-        extensions: ['.ts', '.js', '.jpg', '.jpeg', '.gif', '.png', '.css', '.html']
+        extensions: ['.ts', '.css', '.html', '.js']
     },
     module: {
         loaders: [
-            { test: /\.scss$/, exclude: /node_modules/, loaders: ['raw-loader', 'sass-loader'] },
-            { test: /\.(jpg|jpeg|gif|png)$/, loader: 'file-loader?name=img/[path][name].[ext]' },
-            { test: /\.(eof|woff|woff2|svg)$/, loader: 'file-loader?name=img/[path][name].[ext]' },
             { test: /\.css$/, loader: 'raw-loader' },
             { test: /\.html$/, loaders: ['html-loader'] },
-            { test: /\.ts$/, loaders: ['angular2-router-loader?loader=system', 'awesome-typescript-loader'], exclude: /node_modules/ }
+            {
+                test: /\.ts$/,
+                loaders: [
+                    'awesome-typescript-loader',
+                    'angular-router-loader',
+                    'angular2-template-loader'
+                ]
+            }
         ]
     },
     plugins: [
-        new CommonsChunkPlugin({ name: 'vendor' })
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            minChunks: (module) => module.context && /node_modules/.test(module.context)
+        })
     ]
 };
